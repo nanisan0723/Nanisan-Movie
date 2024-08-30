@@ -1,80 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>なにさん王国発展物語2</title>
-    <style>
-        /* 中央配置用のスタイル */
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* 画面の高さいっぱいに設定 */
-            flex-direction: column;
-        }
-    </style>
-    <style>
-        /* CSSでボタンのサイズを指定する */
-        .submit-button {
-            width: 150px;
-            height: 50px;
-        }
-    </style>
-    <style>
-        /* 親要素のスタイル */
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 30vh;
-        }
-
-        /* CSSでテキストボックスのサイズを指定する */
-        .textbox {
-            font-size: 50px; /* フォントサイズを指定 */
-            width: 800px;
-            height: 80px;
-        }
-
-        /* 送信ボタンのスタイル */
-        .submit-button {
-            margin-bottom: 290px; /* テキストボックスとの間隔を設定 */
-            padding: 8px 16px;
-            background-color: #007bff; /* ボタンの背景色を設定 */
-            color: white; /* テキストカラーを白に設定 */
-            border: none; /* ボーダーをなしに設定 */
-            border-radius: 4px; /* ボタンの角を丸くする */
-            cursor: pointer; /* カーソルをポインターに変更 */
-        }
-        #logo {
-            width: 350px; /* 幅を設定 */
-            height: auto; /* 自動的に高さを調整 */
-        }
-    </style>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script>
-        function submitForm() {
-            var password = document.getElementById("password").value;
-            if (password === "Nanisan0723") {
-                // 正しいパスワードの場合、新しいページにリダイレクト
-                window.location.href = "success_page.html"; 
-                return false; // フォームを送信せず、JavaScriptで処理を行う
-            } else {
-                alert("パスワードが違います。");
-                return false; // パスワードが間違っている場合、フォーム送信を停止
-            }
-        }
-    </script>
+    <title>Nanivideo</title>
 </head>
 <body>
-    <div class="centered">
-        <img src="Nanisan.comver2.jpg" alt="おっと画像が謎のバグにより表示されてないようですね..." id="logo">
-        <form onsubmit="return submitForm();">
-            <input type="password" id="password" class="textbox" placeholder="パスワードを入力">
-            <br><br>
-            <input type="submit" value="Enter" class="submit-button">
-        </form>
+  <div style="background-color: #EDF7FF;">
+<a href="index.html" data-hveid="9"><img src="Nanisan.comver2.png" style="width: 400px; heigh: auto;">
+<a href="index.html" data-hveid="9"><img src="home.png" style="width: 200px; heigh: auto;">
+<a href="profile.html" data-hveid="9"><img src="プロフィール (1).png" style="width: 200px; heigh: auto;">
     </div>
+<h1></h1>
+<iframe src="https://www.youtube.com/embed/n3FB_4xEsC4?rel=0" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/embed/QPZodZ2jAgk?rel=0" allowfullscreen=""></iframe>
 </body>
-</html>
