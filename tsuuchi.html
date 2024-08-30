@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知の例</title>
+</head>
+<body>
+    <button onclick="showNotification()">通知を送る</button>
+
+    <script>
+        function showNotification() {
+            // 通知の許可をリクエスト
+            if (Notification.permission === 'granted') {
+                // 通知を表示
+                new Notification('こんにちは！これは通知の例です。');
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('こんにちは！これは通知の例です。');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
