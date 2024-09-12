@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Redirect Example</title>
+    <style>
+        body {
+            background-image: url('https://media.tenor.com/QhsoXzKZlXwAAAAC/eye-scary.gif');
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form id="redirectForm">
+        <input type="text" id="userInput" placeholder="ﾅﾝとｶいてある？" required>
+        <button type="submit">回答</button>
+    </form>
+
+    <script>
+        document.getElementById('redirectForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            const userInput = document.getElementById('userInput').value.trim();
+            const knockCode = 'ドアを7回ノック';
+            const gameCode = '謎解きゲーム';
+            const knockUrl = 'https://youtu.be/dQw4w9WgXcQ'; // URL for knock code
+            const successUrl = 'success.html'; // URL for game code
+            const fallbackUrl = 'https://www.lomando.com/main.html'; // Fallback URL
+
+            if (userInput === knockCode) {
+                window.location.href = knockUrl;
+            } else if (userInput === gameCode) {
+                window.location.href = successUrl;
+            } else {
+                window.location.href = fallbackUrl;
+            }
+        });
+    </script>
+</body>
+</html>
