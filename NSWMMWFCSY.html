@@ -3,6 +3,7 @@
     <style>    
         a {
             color:black;
+            text-decoration: none;
         }
     .container {
       display: flex;
@@ -17,6 +18,7 @@
       width: 290px;
       white-space: normal;
       overflow: hidden;
+      text-align: center;
       text-overflow: ellipsis;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -52,6 +54,30 @@
     body {
         font-family: "DFPKanteiryu", sans-serif;
     }
+    .container1 {
+            position: relative;
+            display: inline-block;
+        }
+        .image {
+            display: block;
+            width: 290px;
+            height: auto;
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.65);
+            color: white;
+            padding: 5px 5px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .text-below {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 5px;
+        }
     </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>なにさんは○○をフルコンしたいようです。 - Nani!?</title>
@@ -60,33 +86,55 @@
     <a href="https://nanisan0723.github.io/Nanisan-Secret-movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto"></a>
     <h1></h1>
   <div class="container">
-    <div class="group">
-    <a href="NanisanTaiko/pt1.html"><img src="https://img.youtube.com/vi/2NnpHmJPc48/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">「平等院鳳凰ドンvs鳥獣戯カッ」をフルコンしたい!!</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt2.html"><img src="https://img.youtube.com/vi/Po9-6EcNQgw/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">「そして勇者は眠りにつく」をフルコンしたい!!</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt3.html"><img src="https://img.youtube.com/vi/Rwe4qZakP6U/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">「拝啓ドッペルゲンガー」をフルコンしたい!!</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt4.html"><img src="https://img.youtube.com/vi/pd1ARuD5tao/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なんか...むずくね? 【なにさんは○○をフルコンしたいようです。】</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt5.html"><img src="https://img.youtube.com/vi/d_DC9kMhIp4/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">【番外編】え？★9だよね？【なにさんは○○をフルコンしたいようです。】</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt6.html"><img src="https://img.youtube.com/vi/Yv1v9ip2HJc/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">僕はうまくなったんだなぁ...【なにさんは○○をフルコンしたいようです。】</p>
-    </div>
-    <div class="group">
-    <a href="NanisanTaiko/pt7.html"><img src="https://img.youtube.com/vi/wz9KX0j3Lp8/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">【ファミレスウォーズ】楽しい。けどムズい【なにさんは○○をフルコンしたいようです。】</p>
-    </div>
+    <a href="NanisanTaiko/pt1">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/2NnpHmJPc48/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">10:38</div>
+      </div>
+    <p class="auto-wrap">「平等院鳳凰ドンvs鳥獣戯カッ」をフルコンしたい!!</p>
+    </a>
+    <a href="NanisanTaiko/pt2">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/Po9-6EcNQgw/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">4:16</div>
+      </div>
+    <p class="auto-wrap">「そして勇者は眠りにつく」をフルコンしたい!!</p>
+    </a>
+    <a href="NanisanTaiko/pt3">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/Rwe4qZakP6U/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">5:38</div>
+      </div>
+    <p class="auto-wrap">「拝啓ドッペルゲンガー」をフルコンしたい!!</p>
+    </a>
+    <a href="NanisanTaiko/pt4">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/pd1ARuD5tao/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">10:35</div>
+      </div>
+    <p class="auto-wrap">なんか...むずくね? 【なにさんは○○をフルコンしたいようです。】</p>
+    </a>
+    <a href="NanisanTaiko/pt5">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/d_DC9kMhIp4/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">10:35</div>
+      </div>
+    <p class="auto-wrap">【番外編】え？★9だよね？【なにさんは○○をフルコンしたいようです。】</p>
+    </a>
+    <a href="NanisanTaiko/pt6">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/Yv1v9ip2HJc/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">10:35</div>
+      </div>
+    <p class="auto-wrap">僕はうまくなったんだなぁ...【なにさんは○○をフルコンしたいようです。】</p>
+    </a>
+    <a href="NanisanTaiko/pt7">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/wz9KX0j3Lp8/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">10:35</div>
+      </div>
+    <p class="auto-wrap">【ファミレスウォーズ】楽しい。けどムズい【なにさんは○○をフルコンしたいようです。】</p>
+    </a>
+  </div>
 </body>
 </html>

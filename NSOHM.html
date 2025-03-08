@@ -3,6 +3,7 @@
     <style>    
         a {
             color:black;
+            text-decoration: none;
         }
     .container {
       display: flex;
@@ -17,6 +18,7 @@
       width: 290px;
       white-space: normal;
       overflow: hidden;
+      text-align: center;
       text-overflow: ellipsis;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -52,6 +54,30 @@
     body {
         font-family: "DFPKanteiryu", sans-serif;
     }
+    .container1 {
+            position: relative;
+            display: inline-block;
+        }
+        .image {
+            display: block;
+            width: 290px;
+            height: auto;
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.65);
+            color: white;
+            padding: 5px 5px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .text-below {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 5px;
+        }
     </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>なにさん王国発展物語2 - Nani!?</title>
@@ -60,45 +86,76 @@
     <a href="https://nanisan0723.github.io/Nanisan-Secret-movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto"></a>
     <h1></h1>
   <div class="container">
-    <div class="group">
-      <a href="Nanisan2/pt1.html"><img src="https://img.youtube.com/vi/n3FB_4xEsC4/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #1</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt2.html"><img src="https://img.youtube.com/vi/QPZodZ2jAgk/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #2</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt3.html"><img src="https://img.youtube.com/vi/RWDa5FYrhsE/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #3</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt4.html"><img src="https://img.youtube.com/vi/p-2fSTbb82U/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #4</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt5.html"><img src="https://img.youtube.com/vi/CZ-CvXgcxqM/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #5</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt6.html"><img src="https://img.youtube.com/vi/eZRMCtvNnD4/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #6</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt7.html"><img src="https://img.youtube.com/vi/WgVFWULeE4k/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #7</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt8.html"><img src="https://img.youtube.com/vi/8e5cFlRsU4E/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #8</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt9.html"><img src="https://img.youtube.com/vi/3fO_7JEKj_Y/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #9</p>
-    </div>
-    <div class="group">
-      <a href="Nanisan2/pt10.html"><img src="https://img.youtube.com/vi/4_t9n0AwX2M/maxresdefault.jpg" width="290" height="auto" class="pic"></a>
-      <p class="auto-wrap">なにさん王国発展物語2 #10</p>
-    </div>
+    <a href="Nanisan2/pt1.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/n3FB_4xEsC4/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">3:21</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #1</p>
+    </a>
+    <a href="Nanisan2/pt2.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/QPZodZ2jAgk/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">3:35</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #2</p>
+    </a>
+    <a href="Nanisan2/pt3.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/RWDa5FYrhsE/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">3:28</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #3</p>
+    </a>
+    <a href="Nanisan2/pt4.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/p-2fSTbb82U/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">2:37</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #4</p>
+    </a>
+    <a href="Nanisan2/pt5.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/CZ-CvXgcxqM/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">3:50</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #5</p>
+    </a>
+    <a href="Nanisan2/pt6.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/eZRMCtvNnD4/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">3:56</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #6</p>
+    </a>
+    <a href="Nanisan2/pt7.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/WgVFWULeE4k/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">2:12</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #7</p>
+    </a>
+    <a href="Nanisan2/pt8.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/8e5cFlRsU4E/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">2:10</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #8</p>
+    </a>
+    <a href="Nanisan2/pt9.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/3fO_7JEKj_Y/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">4:11</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #9</p>
+    </a>
+    <a href="Nanisan2/pt10.html">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/4_t9n0AwX2M/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">5:27</div>
+      </div>
+    <p class="auto-wrap">なにさん王国発展物語2 #10</p>
+    </a>
+  </div>
 </body>
 </html>
