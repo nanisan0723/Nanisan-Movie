@@ -1,0 +1,52 @@
+<head>
+    <title>レイアウト</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 723px;
+            height: 530px;
+            padding: 10px;
+            border: 5px solid #e8e8e8;
+            border-radius: 7px;
+            outline: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* 上下の要素を適切に配置 */
+            background-color: #e8e8e8;
+            position: relative;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-left img {
+            width: 25px;
+            height: 25px;
+            margin-left: 5px;
+        }
+
+        .bottom-text {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
+    <div class="container">
+        <div class="top-left">
+            <img src="https://nanisan0723.github.io/Nanisan-Secret-movie/channel-icon.jpg" alt="アイコン">
+            <span style="color:gray">なにさんのコマンド部屋</span>
+        </div>
+        <p class="bottom-text" style="font-size: 23px;">ようやくλ7708をクリアすることができました。これから不可を減らしていきま～す。</p>
+        <img style="margin-bottom: 100px; object-fit: cover; border-radius: 10px;" src="image/20250310000425.png" height="1000px">
+    </div>    
+</body>

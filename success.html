@@ -58,6 +58,43 @@
             position: relative;
             display: inline-block;
         }
+
+        .container {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 5px; /* グループ間のスペース */
+        }
+
+        .container2 {
+            width: 300px;
+            padding: 10px;
+            border: 5px solid #e8e8e8;
+            border-radius: 7px;
+            outline: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #e8e8e8;
+
+        }
+        .top {
+            display: flex;
+            align-items: start;
+        }
+        .top img {
+            width: 20px;
+            height: auto;
+        }
+        .bottom {
+            display: flex;
+            align-items: center;
+        }
+        .bottom img {
+            width: 100px;
+            height: 75px;
+            object-fit: cover;
+        }
+
         .image {
             display: block;
             width: 290px;
@@ -213,5 +250,20 @@
       <div class="auto-wrap">ということでコマンドブロックの出し方って解説します【コマンド】【minecraft】【ゆっくり】</div>
     </a>
   </div>
+  <h1></h1>
+    <div class="container">
+        <div class="container2 pic">
+            <a href="community/ciNIkFrS8GGJdVC2svCkGBy76zPrUgsv0S">
+                <div class="top">
+                    <img src="channel-icon.jpg">
+                    <div style="color: gray">なにさんのコマンド部屋</div>
+                </div>
+                <div class="bottom">
+                    <p>ようやくλ7708をクリアすることができました。これから不可を減らしていきま～す。</p>
+                    <img src="community/image/20250310000425.png">
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
