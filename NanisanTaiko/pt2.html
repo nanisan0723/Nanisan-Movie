@@ -17,7 +17,37 @@
         body {
             font-family: "DFPKanteiryu", sans-serif;
         }
+
+        .container {
+          display: flex;
+          align-items: center;
+          gap: 0px;
+        }
+.channel-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+        span, div {
+          padding: 5px 10px;
+        }
     </style>
+<script>
+  const API_KEY = 'AIzaSyBlBr9Tr30GMWCFp1N5ik3LbqBvowXOTis';
+  const CHANNEL_ID = 'UC9qOyJ32LKEaWUfGMz5urUw';
+
+  fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      const count = data.items[0].statistics.subscriberCount;
+      document.getElementById('subscriber-count').innerText = `チャンネル登録者数 ${Number(count).toLocaleString()}人`;
+    })
+    .catch(error => {
+      console.error('取得失敗:', error);
+      document.getElementById('subscriber-count').innerText = '登録者数を取得できませんでした';
+    });
+</script>
     <title>「そして勇者は眠りにつく」をフルコンしたい!! - Nani!?</title>
 </head>
 <body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
@@ -26,7 +56,15 @@
     <iframe src="https://www.youtube.com/embed/Po9-6EcNQgw?rel=0" width="723" height="407" allowfullscreen class="pic"></iframe>
     <h2>「そして勇者は眠りにつく」をフルコンしたい!!</h2>
     <a href="https://www.youtube.com/@Nanisan-Command">
-        <p><img src='https://nanisan0723.github.io/Nanisan-Secret-movie/channel-icon.jpg' style="width:24px;height:24px;vertical-align:middle;"><span style="vertical-align:middle;">なにさんのコマンド部屋</span></p>
+<a href="https://www.youtube.com/@Nanisan-Command" target="_blank">
+  <div class="container" style="background-color: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px 12px; margin-top: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <img src="https://nanisan0723.github.io/Nanisan-Secret-movie/channel-icon.jpg" class="channel-img" style="border-radius: 50%;">
+    <div>
+      <div style="font-weight: bold; font-size: 14px;">なにさんのコマンド部屋</div>
+      <div id="subscriber-count" style="color:#5c5c5c; font-size: 13px; min-width: 160px;">読み込み中...</div>
+    </div>
+  </div>
+</a>
     </a>
     <p>ㅤ</p>
     <div style="background-color: rgba(0,0,0,0.1);">
