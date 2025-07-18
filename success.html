@@ -132,13 +132,96 @@
     <p class="auto-wrap">なにさん王国発展物語2</p>
     </a>
     </div>
-    <a href="NSWMMWFCSY">
-      <div class="container1">
-        <img src="NSWMMWFCSY.png" class="image pic">
-        <div class="text-overlay">動画数:7本</div>
-      </div>
-    <p class="auto-wrap">なにさんは○○をフルコンしたいようです。</p>
-    </a>
+
+
+<!-- 効果音 -->
+<audio id="switch-sound" src="OniUraSwitch.mp3" preload="auto"></audio>
+
+<!-- 表示部分 -->
+<div id="main-container">
+  <a href="NSWMMWFCSY.html" id="link">
+    <div class="container1">
+      <img src="NSWMMWFCSY.png" class="image pic">
+      <div class="text-overlay">動画数:7本</div> 
+    </div>
+    <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
+  </a>
+</div>
+
+<!-- 切り替えGIF -->
+<img id="transition-gif" style="display: none; width: 290px; height: auto;" />
+
+<script>
+  const mainContainer = document.getElementById('main-container');
+  const gif = document.getElementById('transition-gif');
+  const sound = document.getElementById('switch-sound');
+
+  let isEdit = false;
+
+  function updateContent() {
+    mainContainer.innerHTML = isEdit ? `
+      <a href="NSWMMWFCSY(Edit).html" id="link">
+        <div class="container1">
+          <img src="NSWMMWFCSY(Edit).png" class="image pic">
+          <div class="text-overlay">動画数:1本</div> 
+        </div>
+        <p class="auto-wrap" id="toggle-text" style="color: #7235db;">裏！なにさんは○○をフルコンしたいようです。</p>
+      </a>
+    ` : `
+      <a href="NSWMMWFCSY.html" id="link">
+        <div class="container1">
+          <img src="NSWMMWFCSY.png" class="image pic">
+          <div class="text-overlay">動画数:7本</div> 
+        </div>
+        <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
+      </a>
+    `;
+
+    attachListeners();
+  }
+
+  function attachListeners() {
+    const text = document.getElementById('toggle-text');
+
+    // 通常クリックを無効化
+    text.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    // ダブルクリックで切り替え
+    text.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // 効果音
+      sound.currentTime = 0;
+      sound.play();
+
+      // GIFの切り替え（表→裏 or 裏→表）
+      gif.src = isEdit ? 'trans_reverse.gif' : 'trans.gif';
+
+      // 表示切り替え
+      mainContainer.style.display = 'none';
+      gif.style.display = 'block';
+
+      setTimeout(() => {
+        gif.style.display = 'none';
+        isEdit = !isEdit;
+        updateContent();
+        mainContainer.style.display = 'block';
+      }, 200); // 6フレーム = 0.2秒
+    });
+  }
+
+  attachListeners();
+</script>
+
+
+
+
+
+
     <a href="video/w9d29jEZQqn">
       <div class="container1">
         <img src="https://img.youtube.com/vi/Rtt4GEuaqSA/maxresdefault.jpg" class="image pic">
@@ -298,6 +381,20 @@
       </div>
       <div class="auto-wrap">革命2000</div>
     </a>
+    <a href="video/0aUn_LCowCx">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/BHz3B0OKD20/mqdefault.jpg" class="image pic">
+        <div class="text-overlay">2:23</div>
+      </div>
+      <div class="auto-wrap">自分で描いた絵か元からある絵しか使ってはいけないタイプのscratch</div>
+    </a>
+    <a href="video/8TekEAxi2ML">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/iyW73FxOimo/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">2:15</div>
+      </div>
+      <div class="auto-wrap">第?天魔王─できるだけシングル縛り</div>
+    </a>
   </div>
   <h1></h1>
     <div class="container">
@@ -314,5 +411,14 @@
             </a>
         </div>
     </div>
+  <div class="container">
+    <a href="video/8TekEAxi2ML">
+      <div class="container1">
+        <img src="https://img.youtube.com/vi/QaAsoot33z8/maxresdefault.jpg" class="image pic">
+        <div class="text-overlay">2:38</div>
+      </div>
+      <div class="auto-wrap">平等院鳳凰ドン vs 鳥獣戯カッ─ 比較</div>
+    </a>
+  </div>
 </body>
 </html>
