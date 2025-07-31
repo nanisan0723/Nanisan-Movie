@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft tutorial 的なもの普通にやってみたかった もういいよ #minecraft #shorts - Nani!?</title>
+  <title id="page-title">Nani!?</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     @font-face {
@@ -82,7 +82,7 @@
 <body>
   <div class="container">
     <div class="left">
-      <iframe width="282" height="501" src="https://www.youtube.com/embed/Uk6Tlapdtho" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 12px;"></iframe>
+      <iframe id="video-frame" width="282" height="501" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" style="border-radius: 12px;"></iframe>
     </div>
     <div class="right">
       <div>
@@ -92,10 +92,11 @@
         </a>
         <div class="quote">
           <p>今日の言葉</p>
-          <p>「T_T」</p>
+          <p id="daily-word">読み込み中...</p>
         </div>
       </div>
       <div class="credits">
+        <!-- 略（そのまま保持） -->
         <p>↓僕のライバルであり親友である森田のチャンネルはこちら</p>
         <a href="https://www.youtube.com/@森田-morita" target="_blank"><img src="https://www.youtube.com/favicon.ico" height="13"> / @森田-morita</a>
         <hr>
@@ -129,5 +130,34 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const contents = {
+      "k3weNC7uWvr": {
+        title: "Minecraft tutorial 的なもの普通にやってみたかった もういいよ #minecraft #shorts",
+        videoId: "Uk6Tlapdtho",
+        word: "T_T"
+      },
+      "pWB0GqhoGBT": {
+        title: "【不可を出したら即終了】...え？",
+        videoId: "SKbHU6kjRQw",
+        word: "T_T"
+      }
+    };
+
+    const content = contents[id];
+
+    if (content) {
+      document.title = `${content.title} - Nani!?`;
+      document.getElementById("page-title").innerText = content.title;
+      document.getElementById("video-frame").src = `https://www.youtube.com/embed/${content.videoId}`;
+      document.getElementById("daily-word").innerText = `「${content.word}」`;
+    } else {
+      document.getElementById("daily-word").innerText = "動画が見つかりませんでした。";
+    }
+  </script>
 </body>
 </html>
