@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <title id="page-title">Nani!?</title>
   <style>
@@ -36,6 +37,21 @@
       padding: 5px 10px;
     }
   </style>
+<script>
+  const API_KEY = 'AIzaSyBlBr9Tr30GMWCFp1N5ik3LbqBvowXOTis';
+  const CHANNEL_ID = 'UC9qOyJ32LKEaWUfGMz5urUw';
+
+  fetch(https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY})
+    .then(response => response.json())
+    .then(data => {
+      const count = data.items[0].statistics.subscriberCount;
+      document.getElementById('subscriber-count').innerText = チャンネル登録者数 ${Number(count).toLocaleString()}人;
+    })
+    .catch(error => {
+      console.error('取得失敗:', error);
+      document.getElementById('subscriber-count').innerText = '登録者数を取得できませんでした';
+    });
+</script>
 </head>
 <body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
   <a href="https://nanisan0723.github.io/Nanisan-Secret-movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto"></a>
