@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <title id="page-title"> - Nani!?</title>
+  <style>
+    a {
+        text-decoration: none;
+        color:black;
+    }
+    .pic {
+        border-radius: 10px;
+    }
+    @font-face {
+        font-family: "DFPKanteiryu";
+        src: url("https://nanisan0723.github.io/Nanisan-Secret-movie/DFPKanteiryu.ttf") format("trueType");
+    }
+
+    body {
+      font-family: "DFPKanteiryu", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 0px;
+    }
+
+    .channel-img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+    }
+
+    span, div {
+      padding: 5px 10px;
+    }
+  </style>
+<script>
+  const API_KEY = 'AIzaSyBlBr9Tr30GMWCFp1N5ik3LbqBvowXOTis';
+  const CHANNEL_ID = 'UC9qOyJ32LKEaWUfGMz5urUw';
+  const iframe = document.getElementById('youtube-video');
+  const videoId = iframe.src.split('/embed/')[1];
+
+  fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      const count = data.items[0].statistics.subscriberCount;
+      document.getElementById('subscriber-count').innerText = `チャンネル登録者数 ${Number(count).toLocaleString()}人`;
+    })
+    .catch(error => {
+      console.error('取得失敗:', error);
+      document.getElementById('subscriber-count').innerText = 'チャンネル登録者数 723億人(わからないので適当な数字表示させとくわ)';
+    });
+
+
+  fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${API_KEY}`)
+    .then(res => res.json())
+    .then(data => {
+      const views = Number(data.items[0].statistics.viewCount).toLocaleString();
+      document.getElementById('view-count').innerText = `${views}`;
+    })
+    .catch(() => {
+      document.getElementById('view-count').innerText = '再生数を取得できませんでした';
+    });
+</script>
+</head>
+<body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
+  <a href="https://nanisan0723.github.io/Nanisan-Secret-movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto"></a>
+  <h1></h1>
+  <iframe id="youtube-video" width="723" height="407" class="pic" allowfullscreen></iframe>
+  <h2 id="video-title"></h2>
+      <a href="https://www.youtube.com/@Nanisan-Command">
+<a href="https://www.youtube.com/@Nanisan-Command" target="_blank">
+  <div class="container" style="background-color: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px 12px; margin-top: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <img src="https://nanisan0723.github.io/Nanisan-Secret-movie/channel-icon.jpg" class="channel-img" style="border-radius: 50%;">
+    <div>
+      <div style="font-weight: bold; font-size: 14px;">なにさんのコマンド部屋</div>
+      <div id="subscriber-count" style="color:#5c5c5c; font-size: 13px; min-width: 160px;">読み込み中...</div>
+    </div>
+  </div>
+</a>
+  <p>ㅤ</p>
+  <div style="background-color: rgba(0,0,0,0.1); border-radius: 10px;">
+  <p id="view-count">?????</p>
+  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+  <p>今日の言葉</p>
+  <p id="daily-word"></p>
+  <p>ㅤ</p>
+  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+  <p>↓僕のライバルであり親友である森田のチャンネルはこちら</p>
+  <a href="https://www.youtube.com/@森田-morita" target="_blank" style="background-color: rgba(0,0,0,0.1); color: black;"><img src="https://www.youtube.com/favicon.ico" height="13" width="auto"> / @森田-morita</a>
+  <p>ㅤ</p>
+  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+  <p>↓なんか検索サイトなんか作っちゃいました。</p>
+  <a href="https://nanisan0723.github.io/Nanisan.com/PC/index.html" target="_blank" style="color: #0772ff;">https://nanisan0723.github.io/Nanisan.com/PC/index.html</a>
+  <p>ㅤ</p>
+  <p>↓LINE VOOMやってます。</p>
+  <a href="https://linevoom.line.me/user/_dXLn2OtqBJtWoath0MiGFJWq7742f3LhlRjCEKo" target="_blank" style="color: #0772ff;">https://linevoom.line.me/user/_dXLn2OtqBJtWoath0MiGFJWq7742f3LhlRjCEKo</a>
+  <p>ㅤ</p>
+  <p>↓TikTokやってます</p>
+  <a href="https://www.tiktok.com/@nanisan_tiktok" target="_blank" style="background-color: rgba(0,0,0,0.1); color: black;"><img src="https://www.tiktok.com/favicon.ico" height="13" width="auto"> / @nanisan_tiktok</a>
+  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+  <p>ㅤ</p>
+  <p>MusMus</p>
+  <a href="https://musmus.main.jp/" target="_blank" style="color: #0772ff;">https://musmus.main.jp/</a>
+  <p>ㅤ</p>
+  <p>甘茶の音楽工房</p>
+  <a href="http://amachamusic.chagasi.com/" target="_blank" style="color: #0772ff;">http://amachamusic.chagasi.com/</a>
+  <p>ㅤ</p>
+  <p>H/MIX GALLERY</p>
+  <a href="http://www.hmix.net/" target="_blank" style="color: #0772ff;">http://www.hmix.net/</a>
+  <p>ㅤ</p>
+  <p>効果音ラボ</p>
+  <a href="https://soundeffect-lab.info/" target="_blank" style="color: #0772ff;">https://soundeffect-lab.info/</a>
+  <p>ㅤ</p>
+  <p>DOVA-SYNDROM</p>
+  <a href="https://dova-s.jp/" target="_blank" style="color: #0772ff;">https://dova-s.jp/</a>
+  <p>ㅤ</p>
+  <p>音ロジック</p>
+  <a href="https://otologic.jp/" target="_blank" style="color: #0772ff;">https://otologic.jp/</a>
+  <p>ㅤ</p>
+  <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+  <p>クレジット表記</p>
+  <p>ㅤ</p>
+  <p>楽しい金曜日</p>
+  <p>BGM：いまたく 様</p>
+  <p>ダウンロードページ：<a href="https://dova-s.jp/bgm/play14476.html" target="_blank" style="color: #0772ff;">https://dova-s.jp/bgm/play14476.html</a></p>
+  <p>ㅤ</p>
+  <p>週末の予定</p>
+  <p>BGM：いまたく 様</p>
+  <p>ダウンロードページ：<a href="https://dova-s.jp/bgm/play9507.html" target="_blank" style="color: #0772ff;">https://dova-s.jp/bgm/play9507.html</a></p>
+  <p>ㅤ</p>
+  <p>古の街道</p>
+  <p>BGM：のる 様</p>
+  <p>ダウンロードページ：<a href="https://dova-s.jp/bgm/play19808.html" target="_blank" style="color: #0772ff;">https://dova-s.jp/bgm/play19808.html</a></p>
+  <p>ㅤ</p>
+  <p>リリカルステードレイト</p>
+  <p>作詞：中路もとめ 様　龍崎一 様</p>
+  <p>作曲： 龍崎一 様</p>
+  <p>ボーカル：TOYro 様</p>
+  <p>ダウンロードページ : <a href="https://dova-s.jp/bgm/play8761.html" target="_blank" style="color: #0772ff;">https://dova-s.jp/bgm/play8761.html</a></p>
+  <p>ㅤ</p>
+  <p>ほっとココア</p>
+  <p>BGM：いまたく 様</p>
+  <p>ダウンロードページ： <a href="https://dova-s.jp/bgm/play15657.html" target="_blank" style="color: #0772ff;">https://dova-s.jp/bgm/play15657.html</a></p>
+  </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("v");
+
+    const data = {
+      "w9d29jEZQqn": {
+        title: "【？】ふぁんしーあいらんど",
+        video: "Rtt4GEuaqSA",
+        word: "???"
+      },
+      "REGUqPGRw6p": {
+        title: "深夜テンションでつくったコント",
+        video: "NFu0EKZJSB4",
+        word: "せめて面白くあれ"
+      },
+      "V-sKX0rFMXx": {
+        title: "【akinator】僕が出るか試してみら...",
+        video: "UsexQvIOyDQ",
+        word: "昔出るかなと思って検索したら出たけど僕のチャンネルアイコンは出なかったぞ？"
+      },
+      "IFEwAKBc7BP": {
+        title: "【総集編】初代 なにさん王国発展物語",
+        video: "Ru0L0aeXCrE",
+        word: "残念ながら発展はできませんでした"
+      },
+      "Efn0uME4n61": {
+        title: "双打",
+        video: "NCFUME_hG7c",
+        word: "爪 長 ッ"
+      },
+      "fNG1EcB8pYt": {
+        title: "ハンバーガー屋でバイトします。",
+        video: "GNfL5m3sg0s",
+        word: "らっしゃっせー"
+      },
+      "dHDfRek0XVr": {
+        title: "日本語弱者の日本人が日本語能力試験受けてみた。",
+        video: "u2K-PBh1sMU",
+        word: "結論:ギリ日本人"
+      },
+            "mdIWlOqUiZj": {
+        title: "【最難関】森田から死刑宣告を受けました【太鼓の達人】【ゆっくり】",
+        video: "nIFKQmC-4z0",
+        word: "僕が玄人くらいになったらリベンジします"
+      },
+      "nu2LzPKe7uL": {
+        title: "2024がウザかったので譜面にしました",
+        video: "AZgcFHHrIiw",
+        word: "飽きたじゃない や れ "
+      },
+      "GmBi8ZxLOzo": {
+        title: "2024達人課題曲をやってみた",
+        video: "H3Hz7Y5i2PA",
+        word: "門前払い過ぎるだろ"
+      },
+      "PPLE9UQVp7o": {
+        title: "双打(part2)",
+        video: "82As7jaRV9w",
+        word: "何度でもいう。一人二役だ。"
+      },
+      "KmicLLGtT33": {
+        title: "【頑張って理解しろ】三平方の定理について、教えます。【ゆっくり】",
+        video: "2P7z-LVznVw",
+        word: "なんか偉そうだな"
+      },
+      "qvkJiJM1uIq": {
+        title: "やっぱり楽しい。【あまてらすJK】",
+        video: "M1bRKI7vgz4",
+        word: "こういうのでいいんだよ。こういうので。"
+      },
+      "4CDzBYgksoN": {
+        title: "ということでコマンドブロックの出し方って解説します【コマンド】【minecraft】【ゆっくり】",
+        video: "iZsMyOhxNV8",
+        word: "コマンドは難しいです。まぁ頑張ってください(???)"
+      },
+      "U1GDpGh0fVV": {
+        title: "【トロいか2000】新2000シリーズが難しすぎて頭を抱えた",
+        video: "MLAjkD64Tag",
+        word: "これを出しておいてエイプリルフールは何を出すのだろうか..."
+      },
+      "kWZJ-gPonON": {
+        title: "【ドンカマ2000】多少覚えている「おに」と初見の「むずかしい」どっちが難しいのか？",
+        video: "xuZ2pK_h3n4",
+        word: "本当に意味が分からない"
+      },
+      "FC4wAHhs-dB": {
+        title: "【段位道場外伝】人外！なにさんのクソ譜面セレクション(?)",
+        video: "HlTENnySNx8",
+        word: "3曲目の漢字は『ドナルド』と読むらしいです"
+      },
+      "dbaiwaQqs1O": {
+        title: "2000シリーズではない楽曲はどれでしょうクイズ",
+        video: "-KQ0UtIMuS8",
+        word: "一番好きなのは『ひろガル2000』です。"
+      },
+      "FbPZk0ZQ9F1": {
+        title: "〆ドレーをドンカマ化したらアホほど難しくなる説",
+        video: "ySwK2vWQ1hk",
+        word: "いいですねぇ..."
+      },
+      "AXvhbWHBQop": {
+        title: "自分の配信",
+        video: "2d29uVtWQmY",
+        word: "太鼓を作ろう"
+      },
+      "QnQh5iQTavM": {
+        title: "革命2000",
+        video: "dfOdZBt-gUM",
+        word: "可出し過ぎ。魂乗ってない"
+      },
+      "0aUn_LCowCx": {
+        title: "自分で描いた絵か元からある絵しか使ってはいけないタイプのscratch",
+        video: "BHz3B0OKD20",
+        word: "ベル天才だろ(?)"
+      },
+      "uvbEvU43l55": {
+        title: "第?天魔王─できるだけシングル縛り",
+        video: "iyW73FxOimo",
+        word: "正面から立ち向かうと勝ち目がないので、手加減してもらいました。」"
+      },
+      "8TekEAxi2ML": {
+        title: "平等院鳳凰ドン vs 鳥獣戯カッ─ 比較",
+        video: "QaAsoot33z8",
+        word: "フルコンしたいシリーズ第一弾の思い出深い曲です。"
+      },
+      "6Yk2F1-aum6": {
+        title: "11:54PM, Prelude for the Journey of Sunlight",
+        video: "DpKItJndyLo",
+        word: "一回やってみたかった"
+      },
+      "230bGQ5fx7g": {
+        title: "第六天魔王─比較",
+        video: "ri1vZY2S-x8",
+        word: "どうですか？ちゃんと1582コンボにしましたよ？"
+      },
+      "WBjgzsWtUKu": {
+        title: "SUPERNOVAやってみた",
+        video: "TLnrzxMQFwY",
+        word: "金玄人(連打専門)"
+      },
+      "gv2bUSALB30": {
+        title: "「平等院鳳凰ドンvs鳥獣戯カッ」をフルコンしたい!!",
+        video: "2NnpHmJPc48",
+        word: "平等院鳳凰ドンはわかるけど(?)鳥獣戯カッってなに?"
+      },
+      "tHlML3Pi3Vl": {
+        title: "「そして勇者は眠りにつく」をフルコンしたい!!",
+        video: "Po9-6EcNQgw",
+        word: "そしてなにさんは眠りにつく(23時間くらい)"
+      },
+      "QesSOc1bDlG": {
+        title: "「拝啓ドッペルゲンガー」をフルコンしたい!!",
+        video: "Rwe4qZakP6U",
+        word: "★10初フルです。(トゥラッタッタは実は不可判定をなくしてフルコンしているのでカウントしない)"
+      },
+      "wU_yJRU6Wvp": {
+        title: "なんか...むずくね? 【なにさんは○○をフルコンしたいようです。】",
+        video: "pd1ARuD5tao",
+        word: "軽く鬱になりかけた曲です(????)"
+      },
+      "dgMHhXTBCBL": {
+        title: "【番外編】え？★9だよね？【なにさんは○○をフルコンしたいようです。】",
+        video: "d_DC9kMhIp4",
+        word: "意外と時間かかった"
+      },
+      "tHlML3Pi3Vl": {
+        title: "僕はうまくなったんだなぁ...【なにさんは○○をフルコンしたいようです。】",
+        video: "Yv1v9ip2HJc",
+        word: "意外と時間かかんなかった(20分)"
+      },
+      "ImiHRyTobcX": {
+        title: "【ファミレスウォーズ】楽しい。けどムズい【なにさんは○○をフルコンしたいようです。】",
+        video: "wz9KX0j3Lp8",
+        word: "曲もそうだけど何気にコンボ数もいい"
+      },
+      "h-uUQcCaJND": {
+        title: "本当に無理【なにさんは○○をフルコンしたいようです。─】",
+        video: "EWLOn6OgR4Q",
+        word: "勇者表超えたかも"
+      },
+      "WFeyTa9Yx0q": {
+        title: "第六天魔王の裏譜面を僕が作ったらこうなる【太鼓チームの一員になってみた(?)シリーズ】",
+        video: "12u8riqMcdI",
+        word: "本家と創作どっちが好きですかね？"
+      },
+      "0ddtVXDlopp": {
+        title: "「自分が持っているBGM」段位に表以下の難易度を追加したら、難易度調整失敗しました。",
+        video: "uU9ZxSXQLbI",
+        word: "かんたん...？"
+      },
+      "OYm8BFEj6AO": {
+        title: "なにさん王国発展物語2 #1",
+        video: "n3FB_4xEsC4",
+        word: "録画時間が長すぎて録画データとワールドを消して、もう一度やり直したので実質なにさん王国発展物語3 #1"
+      },
+      "NJgpuLMfxfs": {
+        title: "なにさん王国発展物語2 #2",
+        video: "QPZodZ2jAgk",
+        word: "サムネ詐欺じゃん"
+      },
+      "rdgVKxDTBqQ": {
+        title: "なにさん王国発展物語2 #3",
+        video: "RWDa5FYrhsE",
+        word: "建築センスと太鼓の達人ドンダフルフェスティバル (steam版)とtaiko forceと防音室と地位と名誉をください(?????)"
+      },
+      "dufGyYAr4Nx": {
+        title: "なにさん王国発展物語2 #4",
+        video: "p-2fSTbb82U",
+        word: "かんたんに追いついてしまったぜ"
+      },
+      "Rzg7nO_HPey": {
+        title: "なにさん王国発展物語2 #5",
+        video: "CZ-CvXgcxqM",
+        word: "チートはよくないよ by森田"
+      },
+      "CbYeLQOQBW_": {
+        title: "なにさん王国発展物語2 #6",
+        video: "eZRMCtvNnD4",
+        word: "土の中にダイヤと鉄がある。なんか文句あっか？"
+      },
+      "EhfqoHLNiiL": {
+        title: "なにさん王国発展物語2 #7",
+        video: "WgVFWULeE4k",
+        word: "発展させろ"
+      },
+      "8dzQBvM15": {
+        title: "なにさん王国発展物語2 #8",
+        video: "8e5cFlRsU4E",
+        word: "全ロスか？"
+      },
+      "N6b7Htsh7Cs": {
+        title: "なにさん王国発展物語2 #9",
+        video: "3fO_7JEKj_Y",
+        word: "一番苦労した回かも？"
+      },
+      "EykjbkEZDzW": {
+        title: "なにさん王国発展物語2 #10",
+        video: "4_t9n0AwX2M",
+        word: "撮影しすぎて容量がヤバイ...だれか1TBのSDDをください。"
+      },
+      "jgQK47nLWHV": {
+        title: "なにさん王国発展物語2 #11",
+        video: "AqFwLJ4X_L8",
+        word: "改めて見たら深夜テンションな気がしてきた。"
+      }
+    };
+
+    const content = data[id];
+
+    if (content) {
+      document.title = content.title + " - Nani!?";
+      document.getElementById("page-title").innerText = content.title;
+      document.getElementById("video-title").innerText = content.title;
+      document.getElementById("youtube-video").src = `https://www.youtube.com/embed/${content.video}?rel=0`;
+      document.getElementById("daily-word").innerText = `「${content.word}」`;
+    } else {
+      document.getElementById("video-title").innerText = "723 Not Foundｫｫｫｫｫｫｫｫ";
+      document.getElementById("daily-word").innerText = "「こんな動画ねぇよ」";
+    }
+  </script>
+
+</body>
+</html>
