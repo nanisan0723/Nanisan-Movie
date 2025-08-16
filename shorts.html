@@ -78,14 +78,25 @@
       font-size: 0.9rem;
     }
 
-  @media (max-width: 768px) {
-    body {
-      transform: scale(0.5);
-      transform-origin: top left; /* 左上基準で縮小 */
-      width: 200%;  /* 縮小で見切れるのを防ぐ */
-      height: 200%;
-    }
+/* スマホ用レイアウト */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* 縦並びに変更 */
+    height: auto; /* 高さを自動にしてスクロール可能にする */
   }
+
+  .left, .right {
+    flex: none;        /* 幅の比率をリセット */
+    width: 100%;       /* 横幅いっぱい */
+    padding: 0.5rem;   /* 余白少し小さめに */
+  }
+
+  .right {
+    border-radius: 0;  /* デザイン上不要なら丸みを消す */
+    margin-top: 1rem;  /* 上下に隙間をつける */
+  }
+}
+
 
   </style>
 </head>
