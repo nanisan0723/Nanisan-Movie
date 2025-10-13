@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Nani!?</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-        font-family: 'Open Sans Regular';
-        font-style: normal;
-        font-weight: 400;
-        src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
-    }
     body {
       margin: 0;
-      font-family: "Open Sans Regular", sans-serif;
+      font-family: "Noto Sans JP", sans-serif;
       background-color: #d7d7d7;
       background-attachment: fixed;
       color: #000;
@@ -82,76 +79,76 @@
 
     /* スマホ用レイアウト */
     @media (max-width: 723px) {
-      .container {
-        flex-direction: column; /* 縦並びに変更 */
-        height: auto; /* 高さを自動にしてスクロール可能にする */
-      }
-
-      .left, .right {
-        flex: none;        /* 幅の比率をリセット */
-        width: 100%;       /* 横幅いっぱい */
-        padding: 0.5rem;   /* 余白少し小さめに */
-      }
-
-      .right {
-        border-radius: 0;  /* デザイン上不要なら丸みを消す */
-        margin-top: 1rem;  /* 上下に隙間をつける */
-      }
+    .container {
+      flex-direction: column; /* 縦並びに変更 */
+      height: auto; /* 高さを自動にしてスクロール可能にする */
     }
-      /*ここからダークモードのやつなんだよね。*/
-      body.dark {
-        background-color: #212121 !important;
-        color: #d4d4d4;
-        /* ふわっと切り替えるアニメーション効果 */
-      }
 
+    .left, .right {
+      flex: none;        /* 幅の比率をリセット */
+      width: 100%;       /* 横幅いっぱい */
+      padding: 0.5rem;   /* 余白少し小さめに */
+    }
+
+    .right {
+      border-radius: 0;  /* デザイン上不要なら丸みを消す */
+      margin-top: 1rem;  /* 上下に隙間をつける */
+    }
+  }
+    /*ここからダークモードのやつなんだよね。*/
+    body.dark {
+      background-color: #212121 !important;
+      color: #d4d4d4;
       /* ふわっと切り替えるアニメーション効果 */
-        body, .container2, .container2, .credits, .quote, .right, a {
-          transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
-      }
+    }
+
+    /* ふわっと切り替えるアニメーション効果 */
+      body, .container2, .container2, .credits, .quote, .right, a {
+        transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
+    }
 
 
-      body.dark a {
-        color: #d4d4d4;
-      }
+    body.dark a {
+      color: #d4d4d4;
+    }
 
-      body.dark .container2 {
-        background-color: #212121;
-        border-color: #212121;
-        outline-color: #666;
-      }
+    body.dark .container2 {
+      background-color: #212121;
+      border-color: #212121;
+      outline-color: #666;
+    }
 
-      body.dark #dark-mode-toggle {
-        background: #f1f1f1;
-        color: #212121;
-      }
+    body.dark #dark-mode-toggle {
+      background: #f1f1f1;
+      color: #212121;
+    }
 
-      body.dark .credits {
-        overflow-y: auto;
-        max-height: 60vh;
-        padding: 1rem;
-        background: rgba(40,40,40,0.5);
-        border-radius: 8px;
-        font-size: 0.9rem;
-      }
+    body.dark .credits {
+      overflow-y: auto;
+      max-height: 60vh;
+      padding: 1rem;
+      background: rgba(40,40,40,0.5);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
 
-      body.dark .quote {
-        margin-top: 1rem;
-        padding: 0.5rem;
-        background: rgba(40,40,40,0.5);
-        border-radius: 8px;
-        text-align: center;
-      }
+    body.dark .quote {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background: rgba(40,40,40,0.5);
+      border-radius: 8px;
+      text-align: center;
+    }
 
-      body.dark .right {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 1rem;
-        background-color: rgba(0,0,0,0.7);
-        border-radius: 12px 0 0 12px;
-      }
+    body.dark .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 12px 0 0 12px;
+    }
   </style>
 </head>
 <body>
