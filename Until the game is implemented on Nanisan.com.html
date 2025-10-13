@@ -1,6 +1,12 @@
 <html lang="ja">
 <head>
     <style>    
+    @font-face {
+        font-family: 'Open Sans Regular';
+        font-style: normal;
+        font-weight: 400;
+        src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
+    }
         a {
             color:black;
             text-decoration: none;
@@ -46,13 +52,10 @@
     .pic {
       border-radius: 7px;
     }
-    @font-face {
-        font-family: "DFPKanteiryu";
-        src: url("https://nanisan0723.github.io/Nanisan-Movie/DFPKanteiryu.ttf") format("trueType");
-    }
-
     body {
-        font-family: "DFPKanteiryu", sans-serif;
+        font-family: "Noto Sans JP Black", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     .container1 {
             position: relative;
@@ -84,12 +87,57 @@
           -moz-opacity: 0.7;
           opacity: 0.7;
         }
+
+    /*ここからダークモードのやつなんだよね。*/
+    body.dark {
+      background-color: #212121 !important;
+      color: #d4d4d4;
+      /* ふわっと切り替えるアニメーション効果 */
+    }
+
+    /* ふわっと切り替えるアニメーション効果 */
+      body, .container2, .text-overlay, a {
+        transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
+    }
+
+
+    body.dark a {
+      color: #d4d4d4;
+    }
+
+    body.dark .container2 {
+      background-color: #212121;
+      border-color: #212121;
+      outline-color: #666;
+    }
+
+    body.dark #dark-mode-toggle {
+      background: #f1f1f1;
+      color: #212121;
+    }
     </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>なにさん王国発展物語2 - Nani!?</title>
 </head>
-<body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
-    <a href="https://nanisan0723.github.io/Nanisan-Movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto" class="title"></a>
+<body style="background-color: #d7d7d7;">
+    <a href="https://nanisan0723.github.io/Nanisan-Movie/success">
+      <img id="site-logo" src="Nanisan.comver2(LightMode).png" width="300" height="auto" class="title">
+    </a>
+    <button id="dark-mode-toggle" style="
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 9999;
+    ">
+    今はライトモードらしい
+    </button>
     <h1></h1>
   <div class="container">
     <a href="watch?v=vxvn9lwkLum">
@@ -115,4 +163,33 @@
     </a>
   </div>
 </body>
+    <script>
+      const darkToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("site-logo");
+
+      // 保存されたテーマを読み込む
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        darkToggle.textContent = "今はダークモードらしい";
+      }
+
+      darkToggle.addEventListener("click", () => {
+        const isDark = body.classList.toggle("dark");
+        darkToggle.textContent = isDark ? "今はダークモードらしい" : "今はライトモードらしい";
+        logo.src = isDark ? "Nanisan.comver2(DarkMode).png" : "Nanisan.comver2(LightMode).png";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // 初期読み込み時
+      const isDarkSaved = localStorage.getItem("theme") === "dark";
+      applyTheme(isDarkSaved);
+
+      // ボタン押した時
+      darkToggle.addEventListener("click", () => {
+        const isDark = !document.body.classList.contains("dark");
+        applyTheme(isDark);
+      });
+
+    </script>
 </html>

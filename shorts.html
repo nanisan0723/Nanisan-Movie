@@ -7,14 +7,15 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     @font-face {
-      font-family: "DFPKanteiryu";
-      src: url("https://nanisan0723.github.io/Nanisan-Movie/DFPKanteiryu.ttf") format("truetype");
+        font-family: 'Open Sans Regular';
+        font-style: normal;
+        font-weight: 400;
+        src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
     }
-
     body {
       margin: 0;
-      font-family: "DFPKanteiryu", sans-serif;
-      background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);
+      font-family: "Noto Sans JP Black", sans-serif;
+      background-color: #d7d7d7;
       background-attachment: fixed;
       color: #000;
     }
@@ -34,8 +35,9 @@
     .left {
       flex: 2;
       display: flex;
+      flex-direction: column; /* ← ここを追加 */
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* 上寄せに変更 */
       padding: 1rem;
     }
 
@@ -78,33 +80,110 @@
       font-size: 0.9rem;
     }
 
-/* スマホ用レイアウト */
-@media (max-width: 723px) {
-  .container {
-    flex-direction: column; /* 縦並びに変更 */
-    height: auto; /* 高さを自動にしてスクロール可能にする */
-  }
+    /* スマホ用レイアウト */
+    @media (max-width: 723px) {
+      .container {
+        flex-direction: column; /* 縦並びに変更 */
+        height: auto; /* 高さを自動にしてスクロール可能にする */
+      }
 
-  .left, .right {
-    flex: none;        /* 幅の比率をリセット */
-    width: 100%;       /* 横幅いっぱい */
-    padding: 0.5rem;   /* 余白少し小さめに */
-  }
+      .left, .right {
+        flex: none;        /* 幅の比率をリセット */
+        width: 100%;       /* 横幅いっぱい */
+        padding: 0.5rem;   /* 余白少し小さめに */
+      }
 
-  .right {
-    border-radius: 0;  /* デザイン上不要なら丸みを消す */
-    margin-top: 1rem;  /* 上下に隙間をつける */
-  }
-}
+      .right {
+        border-radius: 0;  /* デザイン上不要なら丸みを消す */
+        margin-top: 1rem;  /* 上下に隙間をつける */
+      }
+    }
+      /*ここからダークモードのやつなんだよね。*/
+      body.dark {
+        background-color: #212121 !important;
+        color: #d4d4d4;
+        /* ふわっと切り替えるアニメーション効果 */
+      }
+
+      /* ふわっと切り替えるアニメーション効果 */
+        body, .container2, .container2, .credits, .quote, .right, a {
+          transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
+      }
 
 
+      body.dark a {
+        color: #d4d4d4;
+      }
+
+      body.dark .container2 {
+        background-color: #212121;
+        border-color: #212121;
+        outline-color: #666;
+      }
+
+      body.dark #dark-mode-toggle {
+        background: #f1f1f1;
+        color: #212121;
+      }
+
+      body.dark .credits {
+        overflow-y: auto;
+        max-height: 60vh;
+        padding: 1rem;
+        background: rgba(40,40,40,0.5);
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+
+      body.dark .quote {
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: rgba(40,40,40,0.5);
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      body.dark .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 12px 0 0 12px;
+      }
   </style>
 </head>
 <body>
   <div class="container">
+        <button id="dark-mode-toggle" style="
+          position: fixed;
+          top: 10px;
+          right: 10px;
+          background: #333;
+          color: white;
+          border: none;
+          padding: 8px 14px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+          z-index: 9999;
+        ">
+        今はライトモードらしい
+        </button>
     <div class="left">
-      <iframe id="video-frame" width="282" height="501" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" style="border-radius: 12px;"></iframe>
+      <!-- ロゴ -->
+      <a href="https://nanisan0723.github.io/Nanisan-Movie/success" id="site-logo-link" style="display: block; text-align: center; margin-bottom: 10px;">
+        <img id="site-logo" src="Nanisan.comver2(LightMode).png" class="title" style="width: 300px; height: auto;">
+      </a>
+
+      <!-- YouTube動画 -->
+      <iframe id="video-frame" width="282" height="501" frameborder="0" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" style="border-radius: 12px;"></iframe>
     </div>
+
+
     <div class="right">
       <div>
         <a href="https://www.youtube.com/@Nanisan-Command" class="channel-info">
@@ -186,4 +265,33 @@
     }
   </script>
 </body>
+    <script>
+      const darkToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("site-logo");
+
+      // 保存されたテーマを読み込む
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        darkToggle.textContent = "今はダークモードらしい";
+      }
+
+      darkToggle.addEventListener("click", () => {
+        const isDark = body.classList.toggle("dark");
+        darkToggle.textContent = isDark ? "今はダークモードらしい" : "今はライトモードらしい";
+        logo.src = isDark ? "Nanisan.comver2(DarkMode).png" : "Nanisan.comver2(LightMode).png";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // 初期読み込み時
+      const isDarkSaved = localStorage.getItem("theme") === "dark";
+      applyTheme(isDarkSaved);
+
+      // ボタン押した時
+      darkToggle.addEventListener("click", () => {
+        const isDark = !document.body.classList.contains("dark");
+        applyTheme(isDark);
+      });
+
+    </script>
 </html>

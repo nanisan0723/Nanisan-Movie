@@ -1,10 +1,16 @@
 <html lang="ja">
 <head>
-    <style>    
-        a {
-            color:black;
-            text-decoration: none;
-        }
+    <style>
+    @font-face {
+        font-family: 'Open Sans Regular';
+        font-style: normal;
+        font-weight: 400;
+        src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
+    }    
+    a {
+        color:black;
+        text-decoration: none;
+    }
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -46,117 +52,214 @@
     .pic {
       border-radius: 7px;
     }
-    @font-face {
-        font-family: "DFPKanteiryu";
-        src: url("https://nanisan0723.github.io/Nanisan-Movie/DFPKanteiryu.ttf") format("trueType");
-    }
 
-    body {
-        font-family: "DFPKanteiryu", sans-serif;
-    }
     .container1 {
-            position: relative;
-            display: inline-block;
-        }
+        position: relative;
+        display: inline-block;
+    }
 
-        .container {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 5px; /* グループ間のスペース */
-        }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px; /* グループ間のスペース */
+    }
 
-        .container2 {
-            width: 300px;
-            padding: 10px;
-            border: 5px solid #e8e8e8;
-            border-radius: 7px;
-            outline: 2px solid black;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background-color: #e8e8e8;
+    .container2 {
+        width: 300px;
+        padding: 10px;
+        border: 5px solid #e8e8e8;
+        border-radius: 7px;
+        outline: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #e8e8e8;
 
-        }
-        .top {
-            display: flex;
-            align-items: start;
-        }
-        .top img {
-            width: 20px;
-            height: auto;
-        }
-        .bottom {
-            display: flex;
-            align-items: center;
-        }
-        .bottom img {
-            width: 100px;
-            height: 75px;
-            object-fit: cover;
-        }
+    }
+    .top {
+        display: flex;
+        align-items: start;
+    }
+    .top img {
+        width: 20px;
+        height: auto;
+    }
+    .bottom {
+        display: flex;
+        align-items: center;
+    }
+    .bottom img {
+        width: 100px;
+        height: 75px;
+        object-fit: cover;
+    }
 
-        .image {
-            display: block;
-            width: 290px;
-            height: auto;
-        }
-        .text-overlay {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background: rgba(0, 0, 0, 0.65);
-            color: white;
-            padding: 5px 5px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-        .text-below {
-            text-align: center;
-            font-size: 16px;
-            margin-top: 5px;
-        }
+    .image {
+        display: block;
+        width: 290px;
+        height: auto;
+    }
+    .text-overlay {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background: rgba(0, 0, 0, 0.65);
+        color: white;
+        padding: 5px 5px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+    .text-below {
+        text-align: center;
+        font-size: 16px;
+        margin-top: 5px;
+    }
 
-        .title:hover {
-          filter: alpha(opacity=70);
-          -moz-opacity: 0.7;
-          opacity: 0.7;
-        }
+    .title:hover {
+      filter: alpha(opacity=70);
+      -moz-opacity: 0.7;
+      opacity: 0.7;
+    }
+    body {
+        font-family: "Noto Sans JP Black", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .container1 {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-stack {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-stack img {
+      position: absolute;
+      top: 10;
+      left: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .image-stack .main {
+      position: relative;
+      z-index: 3;
+      height: 153px;
+    }
+
+    .image-stack .behind1 {
+      z-index: 2;
+      transform: scale(0.9) translateY(-14px);
+      opacity: 0.7;
+    }
+
+    .image-stack .behind2 {
+      z-index: 1;
+      transform: scale(0.8) translateY(-31px);
+      opacity: 0.5;
+    }
+
+    /*ここからダークモードのやつなんだよね。*/
+    body.dark {
+      background-color: #212121 !important;
+      color: #d4d4d4;
+      /* ふわっと切り替えるアニメーション効果 */
+    }
+
+    /* ふわっと切り替えるアニメーション効果 */
+      body, .container2, .text-overlay, a {
+        transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
+    }
+
+
+    body.dark a {
+      color: #d4d4d4;
+    }
+
+    body.dark .container2 {
+      background-color: #212121;
+      border-color: #212121;
+      outline-color: #666;
+    }
+
+    body.dark #dark-mode-toggle {
+      background: #f1f1f1;
+      color: #212121;
+    }
     </style>
     <title>Nani!?</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
-    <a href="https://nanisan0723.github.io/Nanisan-Movie/success"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto" class="title"></a>
+<body style="background-color: #d7d7d7;">
+    <a href="https://nanisan0723.github.io/Nanisan-Movie/success">
+      <img id="site-logo" src="Nanisan.comver2(LightMode).png" width="300" height="auto" class="title">
+    </a>
+    <button id="dark-mode-toggle" style="
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 9999;
+    ">
+    今はライトモードらしい
+    </button>
     <h1></h1>
   <div class="container">
     <a href="Friday Night Funkin' by Nanisan.html">
-      <div class="container1">
-        <img src="Friday Night Funkin' by Nanisan.png" class="image pic">
-        <div class="text-overlay">動画数:1本</div>
-      </div>
-    <p class="auto-wrap">なにさんによるFriday Night Funkin'</p>
+        <div class="container1">
+            <div class="image-stack">
+              <img src="Friday Night Funkin' by Nanisan.png" class="image pic main">
+              <img src="Friday Night Funkin' by Nanisan.png" class="image pic behind1">
+              <img src="Friday Night Funkin' by Nanisan.png" class="image pic behind2">
+            </div>
+          <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:1本</div>
+        </div>
+        <p class="auto-wrap">なにさんによるFriday Night Funkin'</p>
     </a>
     <a href="Until the game is implemented on Nanisan.com.html">
-      <div class="container1">
-        <img src="無題 2025-08-10 20-57-55.png" class="image pic">
-        <div class="text-overlay">動画数:2本</div>
-      </div>
-    <p class="auto-wrap">Nanisan.comにゲームを実装するまで</p>
+        <div class="container1">
+            <div class="image-stack">
+              <img src="無題 2025-08-10 20-57-55.png" class="image pic main">
+              <img src="無題 2025-08-10 20-57-55.png" class="image pic behind1">
+              <img src="無題 2025-08-10 20-57-55.png" class="image pic behind2">
+            </div>
+          <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:3本</div>
+        </div>
+        <p class="auto-wrap">Nanisan.comにゲームを実装するまで</p>
     </a>
     <a href="I%20tried%20being%20a%20member%20of%20a%20taiko%20team.html">
-      <div class="container1">
-        <img src="I tried being a member of a taiko team.png" class="image pic">
-        <div class="text-overlay">動画数:2本</div>
-      </div>
-    <p class="auto-wrap">太鼓チームの一員になってみた(?)シリーズ</p>
+        <div class="container1">
+            <div class="image-stack">
+              <img src="I tried being a member of a taiko team.png" class="image pic main">
+              <img src="I tried being a member of a taiko team.png" class="image pic behind1">
+              <img src="I tried being a member of a taiko team.png" class="image pic behind2">
+            </div>
+          <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:2本</div>
+        </div>
+        <p class="auto-wrap">太鼓チームの一員になってみた(?)シリーズ</p>
     </a>
     <div class="group">
     <a href="NSOHM">
-      <div class="container1">
-        <img src="NSOHM.png" class="image pic">
-        <div class="text-overlay">動画数:11本</div>
-      </div>
-    <p class="auto-wrap">なにさん王国発展物語2</p>
+        <div class="container1">
+            <div class="image-stack">
+              <img src="NSOHM.png" class="image pic main">
+              <img src="NSOHM.png" class="image pic behind1">
+              <img src="NSOHM.png" class="image pic behind2">
+            </div>
+          <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:11本</div>
+        </div>
+        <p class="auto-wrap">なにさん王国発展物語2</p>
     </a>
 
     </div>
@@ -167,11 +270,15 @@
 <!-- 表示部分 -->
 <div id="main-container">
   <a href="NSWMMWFCSY.html" id="link">
-    <div class="container1">
-      <img src="NSWMMWFCSY.png" class="image pic">
-      <div class="text-overlay">動画数:7本</div> 
-    </div>
-    <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
+      <div class="container1">
+          <div class="image-stack">
+            <img src="NSWMMWFCSY.png" class="image pic main">
+            <img src="NSWMMWFCSY.png" class="image pic behind1">
+            <img src="NSWMMWFCSY.png" class="image pic behind2">
+          </div>
+        <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:7本</div>
+      </div>
+      <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
   </a>
 </div>
 
@@ -188,19 +295,27 @@
   function updateContent() {
     mainContainer.innerHTML = isEdit ? `
       <a href="NSWMMWFCSY(Edit).html" id="link">
-        <div class="container1">
-          <img src="NSWMMWFCSY(Edit).png" class="image pic">
-          <div class="text-overlay">動画数:1本</div> 
-        </div>
-        <p class="auto-wrap" id="toggle-text" style="color: #7235db;">裏！なにさんは○○をフルコンしたいようです。</p>
+          <div class="container1">
+              <div class="image-stack">
+                <img src="NSWMMWFCSY(Edit).png" class="image pic main">
+                <img src="NSWMMWFCSY(Edit).png" class="image pic behind1">
+                <img src="NSWMMWFCSY(Edit).png" class="image pic behind2">
+              </div>
+            <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:1本</div>
+          </div>
+          <p class="auto-wrap" id="toggle-text" style="color: #7235db;">裏！なにさんは○○をフルコンしたいようです。</p>
       </a>
     ` : `
       <a href="NSWMMWFCSY.html" id="link">
-        <div class="container1">
-          <img src="NSWMMWFCSY.png" class="image pic">
-          <div class="text-overlay">動画数:7本</div> 
-        </div>
-        <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
+          <div class="container1">
+              <div class="image-stack">
+                <img src="NSWMMWFCSY.png" class="image pic main">
+                <img src="NSWMMWFCSY.png" class="image pic behind1">
+                <img src="NSWMMWFCSY.png" class="image pic behind2">
+              </div>
+            <div class="text-overlay" style="z-index: 5; bottom: -5px;"><img src="再生リスト.png" width="12" style="filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7492%) hue-rotate(165deg) brightness(116%) contrast(92%);">動画数:7本</div>
+          </div>
+          <p class="auto-wrap" id="toggle-text" style="color: #dc1886;">なにさんは○○をフルコンしたいようです。</p>
       </a>
     `;
 
@@ -477,4 +592,33 @@
     </a>
   </div>
 </body>
+    <script>
+      const darkToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("site-logo");
+
+      // 保存されたテーマを読み込む
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        darkToggle.textContent = "今はダークモードらしい";
+      }
+
+      darkToggle.addEventListener("click", () => {
+        const isDark = body.classList.toggle("dark");
+        darkToggle.textContent = isDark ? "今はダークモードらしい" : "今はライトモードらしい";
+        logo.src = isDark ? "Nanisan.comver2(DarkMode).png" : "Nanisan.comver2(LightMode).png";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // 初期読み込み時
+      const isDarkSaved = localStorage.getItem("theme") === "dark";
+      applyTheme(isDarkSaved);
+
+      // ボタン押した時
+      darkToggle.addEventListener("click", () => {
+        const isDark = !document.body.classList.contains("dark");
+        applyTheme(isDark);
+      });
+
+    </script>
 </html>

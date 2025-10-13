@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <title id="page-title"> - Nani!?</title>
   <style>
+    @font-face {
+        font-family: 'Open Sans Regular';
+        font-style: normal;
+        font-weight: 400;
+        src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
+    }
     a {
         text-decoration: none;
         color:black;
@@ -12,13 +18,11 @@
     .pic {
         border-radius: 10px;
     }
-    @font-face {
-        font-family: "DFPKanteiryu";
-        src: url("https://nanisan0723.github.io/Nanisan-Movie/DFPKanteiryu.ttf") format("trueType");
-    }
-
+    
     body {
-      font-family: "DFPKanteiryu", sans-serif;
+        font-family: "Noto Sans JP Black", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .container {
@@ -42,6 +46,38 @@
       -moz-opacity: 0.7;
       opacity: 0.7;
     }
+
+    /*ここからダークモードのやつなんだよね。*/
+    body.dark {
+      background-color: #212121 !important;
+      color: #d4d4d4;
+      /* ふわっと切り替えるアニメーション効果 */
+    }
+
+    /* ふわっと切り替えるアニメーション効果 */
+      body, .container2, .channel-back, .text-overlay, a {
+        transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, outline-color 0.4s ease;
+    }
+
+
+    body.dark a {
+      color: #d4d4d4;
+    }
+
+    body.dark .container2 {
+      background-color: #212121;
+      border-color: #212121;
+      outline-color: #666;
+    }
+
+    body.dark .channel-back {
+      background-color: rgba(51,51,51,0.7);
+    }
+
+    body.dark #dark-mode-toggle {
+      background: #f1f1f1;
+      color: #212121;
+    }
   </style>
 <script>
   const API_KEY = 'AIzaSyBlBr9Tr30GMWCFp1N5ik3LbqBvowXOTis';
@@ -59,14 +95,31 @@
     });
 </script>
 </head>
-<body style="background-image: url(https://nanisan0723.github.io/Nanisan-blog-test/background.png);">
-  <a href="https://nanisan0723.github.io/Nanisan-Movie/success.html"><img src="https://nanisan0723.github.io/Nanisan-blog-test/Nanisan.comver2.png" width="300" height="auto" class="title"></a>
+<body style="background-color: #d7d7d7;">
+    <a href="https://nanisan0723.github.io/Nanisan-Movie/success">
+      <img id="site-logo" src="Nanisan.comver2(LightMode).png" width="300" height="auto" class="title">
+    </a>
+    <button id="dark-mode-toggle" style="
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 9999;
+    ">
+    今はライトモードらしい
+    </button>
   <h1></h1>
   <iframe id="youtube-video" width="723" height="407" class="pic" allowfullscreen></iframe>
   <h2 id="video-title"></h2>
       <a href="https://www.youtube.com/@Nanisan-Command">
 <a href="https://www.youtube.com/@Nanisan-Command" target="_blank">
-  <div class="container" style="background-color: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px 12px; margin-top: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+  <div class="container channel-back" style="border-radius: 10px; padding: 8px 12px; margin-top: 12px; box-shadow: 0 2px 5px rgba(0,0,0,1.1);">
     <img src="https://nanisan0723.github.io/Nanisan-Movie/channel-icon.jpg" class="channel-img" style="border-radius: 50%;">
     <div>
       <div style="font-weight: bold; font-size: 14px;">なにさんのコマンド部屋</div>
@@ -82,7 +135,7 @@
   <p>ㅤ</p>
   <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
   <p>↓僕のライバルであり親友である森田のチャンネルはこちら</p>
-  <a href="https://www.youtube.com/@森田-morita" target="_blank" style="background-color: rgba(0,0,0,0.1); color: black;"><img src="https://www.youtube.com/favicon.ico" height="13" width="auto"> / @森田-morita</a>
+  <a href="https://www.youtube.com/@森田-morita" target="_blank" style="background-color: rgba(0,0,0,0.1);"><img src="https://www.youtube.com/favicon.ico" height="13" width="auto"> / @森田-morita</a>
   <p>ㅤ</p>
   <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
   <p>↓なんか検索サイトなんか作っちゃいました。</p>
@@ -92,7 +145,7 @@
   <a href="https://linevoom.line.me/user/_dXLn2OtqBJtWoath0MiGFJWq7742f3LhlRjCEKo" target="_blank" style="color: #0772ff;">https://linevoom.line.me/user/_dXLn2OtqBJtWoath0MiGFJWq7742f3LhlRjCEKo</a>
   <p>ㅤ</p>
   <p>↓TikTokやってます</p>
-  <a href="https://www.tiktok.com/@nanisan_tiktok" target="_blank" style="background-color: rgba(0,0,0,0.1); color: black;"><img src="https://www.tiktok.com/favicon.ico" height="13" width="auto"> / @nanisan_tiktok</a>
+  <a href="https://www.tiktok.com/@nanisan_tiktok" target="_blank" style="background-color: rgba(0,0,0,0.1);"><img src="https://www.tiktok.com/favicon.ico" height="13" width="auto"> / @nanisan_tiktok</a>
   <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
   <p>ㅤ</p>
   <p>MusMus</p>
@@ -427,4 +480,33 @@
   </script>
 
 </body>
+    <script>
+      const darkToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("site-logo");
+
+      // 保存されたテーマを読み込む
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+        darkToggle.textContent = "今はダークモードらしい";
+      }
+
+      darkToggle.addEventListener("click", () => {
+        const isDark = body.classList.toggle("dark");
+        darkToggle.textContent = isDark ? "今はダークモードらしい" : "今はライトモードらしい";
+        logo.src = isDark ? "Nanisan.comver2(DarkMode).png" : "Nanisan.comver2(LightMode).png";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // 初期読み込み時
+      const isDarkSaved = localStorage.getItem("theme") === "dark";
+      applyTheme(isDarkSaved);
+
+      // ボタン押した時
+      darkToggle.addEventListener("click", () => {
+        const isDark = !document.body.classList.contains("dark");
+        applyTheme(isDark);
+      });
+
+    </script>
 </html>
