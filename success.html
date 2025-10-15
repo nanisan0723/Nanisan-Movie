@@ -192,6 +192,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <!-- GIFを事前に読み込む -->
+    <link rel="preload" href="trans.gif" as="image">
+    <link rel="preload" href="trans_reverse.gif" as="image">
+
+    <script>
+      // JavaScriptでも念のため読み込んでおく
+      const preloadGifs = ['trans.gif', 'trans_reverse.gif'];
+      preloadGifs.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    </script>
 </head>
 <body style="background-color: #d7d7d7;">
     <a href="https://nanisan0723.github.io/Nanisan-Movie/success">
@@ -339,7 +351,7 @@
       sound.play();
 
       // GIFの切り替え（表→裏 or 裏→表）
-      gif.src = isEdit ? 'trans_reverse.gif' : 'trans.gif';
+      gif.src = (isEdit ? 'trans_reverse.gif' : 'trans.gif') + '?t=' + Date.now();
 
       // 表示切り替え
       mainContainer.style.display = 'none';
